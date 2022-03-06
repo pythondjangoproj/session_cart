@@ -1,0 +1,25 @@
+
+{%extends "sessioncart_app/base.html" %}
+{%block content%}
+  
+<h1>your shopping cart information</h1>
+
+{% if request.session %}
+<table barder="2">
+    <thead>
+    <th>item name</th>
+    <th>Quantity</th>
+    </thead>
+    {% for key,value in request.session.items %}
+    <tr>
+        <td>{{key}}</td>
+        <td>{{value}}</td>
+    </tr>
+    {%endfor%}
+
+</table>
+
+{% else %}
+<p>no information is availabe in cart</p>
+{% endif %}
+{% endblock %}
