@@ -8,6 +8,7 @@ def add_item_view(request):
         name=request.POST['name']
         quantity=request.POST['quantity']
         request.session[name]=quantity
+        request.session.set_expiry(120)
     return render(request,'sessioncart_app/additem.html',{'form':form})
 
 def display_item(request):
